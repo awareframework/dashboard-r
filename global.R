@@ -6,5 +6,5 @@ if (!require("pacman")) install.packages("pacman")
 #add required pacakages here
 pacman::p_load(shinydashboard, RMySQL, parallel, dplyr, ggplot2)
 
-#load all .R files in the tabs folder
-lapply(list.files(pattern = "tabs/[.]R$", recursive = TRUE), source)
+#load all files in the tabs folder
+lapply(dir("tabs",full.names = TRUE), source)
