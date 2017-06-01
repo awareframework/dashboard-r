@@ -1,7 +1,8 @@
 
 
 tabBattery <- function(input, output, session) {
-  
+
+#This event is fired when the user presses the "Refresh" actionbutton on the UI  
 observeEvent(input$batteryRefresh, {
   db <- dbConnect(MySQL(), dbname = options()$mysql$database, host = options()$mysql$host, 
                   port = options()$mysql$port, user = options()$mysql$user, 

@@ -60,6 +60,6 @@ server <- function(input, output) {
   
   
   callModule(tabBattery,"tabBattery")
-  
+  callModule(tabSettings,"tabSettings")
   
 }
