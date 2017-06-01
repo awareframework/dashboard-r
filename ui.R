@@ -5,7 +5,8 @@ ui <- dashboardPage(
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Settings", tabName = "settings", icon = icon("gear")),
+      menuItemOutput("menuitem"),
+      menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "offline", badgeColor = "red"),
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Devices", tabName = "devices", icon = icon("mobile")),
       menuItem("Battery", tabName = "tabBattery", icon = icon("battery-half")),

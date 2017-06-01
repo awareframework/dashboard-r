@@ -9,6 +9,10 @@ tabSettings <- function(input, output, session) {
                             password = input$password)
             )
  
+    output$menuitem <- renderMenu({
+      menuItem("Menu item", icon = icon("calendar"))
+    })
+    isolate({updateTabItems(session, "menuitem", "dashboard")})
     
   }
   )
