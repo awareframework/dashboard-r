@@ -15,27 +15,16 @@ ui <- dashboardPage(
   dashboardBody(
     tabItems(
 
-      # new tab content
       tabItem(tabName = "settings" ,
               tabSettingsUI("tabSettings")
       ),
       
-      
-      # new tab content
       tabItem(tabName = "dashboard",
-              h2("Overview of all data"),
-              fluidRow(
-                valueBoxOutput("totalDevices"), valueBoxOutput("totalAppLaunches"), valueBoxOutput("totalBatteryEvents")
-              )
+              tabDashboardUI("tabDashboard")
       ),
       
       tabItem(tabName = "devices", 
-              h2("Device details"),
-              fluidRow(
-                column(12,
-                       dataTableOutput("deviceInfo")
-                )
-              )
+              tabDevicesUI("tabDevices")
       ), 
       
       tabItem(tabName = "tabBattery",

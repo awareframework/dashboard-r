@@ -1,6 +1,11 @@
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(shinydashboard, RMySQL, parallel, dplyr, ggplot2)
+
 source("tabs/tabBatteryUI.R")
 source("tabs/tabBattery.R")
 source("tabs/tabSettingsUI.R")
 source("tabs/tabSettings.R")
+source("tabs/tabDashboardUI.R")
+source("tabs/tabDashboard.R")
+source("tabs/tabDevicesUI.R")
+source("tabs/tabDevices.R")

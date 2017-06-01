@@ -4,9 +4,11 @@ tabBattery <- function(input, output, session) {
 
 #This event is fired when the user presses the "Refresh" actionbutton on the UI  
 observeEvent(input$batteryRefresh, {
-  db <- dbConnect(MySQL(), dbname = options()$mysql$database, host = options()$mysql$host, 
-                  port = options()$mysql$port, user = options()$mysql$user, 
-                  password = options()$mysql$password)
+  print("hostname is")
+  print(mysql$host)
+  db <- dbConnect(MySQL(), dbname = mysql$database, host = mysql$host, 
+                  port = mysql$port, user = mysql$user, 
+                  password = mysql$password)
   batteryStats <- dbGetQuery(db,
                              "select _id as device_id, date, count from aware_device left join
                              (select date(FROM_UNIXTIME(timestamp/1000)) as date, device_id, count(*) as count from
