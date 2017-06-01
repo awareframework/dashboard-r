@@ -1,22 +1,16 @@
-## app.R ##
+## server.R ##
+
+##Define global variable for holding database handle
+options(
+  db <- NULL
+)
 
 
-#### Analysis & data generation
 
-##global variable for holding database credentials
-(mysql = list(
-  "host" = "theawareframework.com",
-  "port" = 3306,
-  "user" = "user_goes_here",
-  "password" = "password_goes_here",
-  "database" = "database_name_here"
-))
-
-
+##Add here calls to each tab
 server <- function(input, output) {
   callModule(tabSettings,"tabSettings")
   callModule(tabBattery,"tabBattery")
   callModule(tabDashboard, "tabDashboard")
   callModule(tabDevices, "tabDevices")
-  
 }

@@ -1,11 +1,10 @@
+#check if pacman package exists, if not install it
 if (!require("pacman")) install.packages("pacman")
+
+#use pacman to automatically load  or install requried packages.
+#NOTE:
+#add required pacakages here
 pacman::p_load(shinydashboard, RMySQL, parallel, dplyr, ggplot2)
 
-source("tabs/tabBatteryUI.R")
-source("tabs/tabBattery.R")
-source("tabs/tabSettingsUI.R")
-source("tabs/tabSettings.R")
-source("tabs/tabDashboardUI.R")
-source("tabs/tabDashboard.R")
-source("tabs/tabDevicesUI.R")
-source("tabs/tabDevices.R")
+#load all .R files in the tabs folder
+lapply(list.files(pattern = "tabs/[.]R$", recursive = TRUE), source)
