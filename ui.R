@@ -4,9 +4,10 @@ ui <- dashboardPage(
   dashboardHeader(title = "AWARE dashboard"),
   ## Sidebar content
   dashboardSidebar(
-    sidebarMenu(
-      menuItemOutput("menuitem"),
-      menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "offline", badgeColor = "red"),
+    sidebarMenu(id="tabs",
+                
+      #the first item is differnt, because we dynamically update it
+      menuItemOutput("menuSettings"),
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Devices", tabName = "devices", icon = icon("mobile")),
       menuItem("Battery", tabName = "tabBattery", icon = icon("battery-half")),
