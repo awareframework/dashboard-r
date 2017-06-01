@@ -21,7 +21,7 @@ ui <- dashboardPage(
               )
       ),
       
-      tabItem(tabName = "devices",
+      tabItem(tabName = "devices", 
               h2("Device details"),
               fluidRow(
                 column(12,
@@ -34,7 +34,7 @@ ui <- dashboardPage(
               tabBatteryUI("tabBattery")
       ), 
       
-      tabItem(tabName = "screen",
+      tabItem(tabName = "screen" ,
               h2("Here we visualise data from the screen table")
       )
     )
