@@ -3,6 +3,10 @@ tabDevices <- function(input, output, session) {
 #This event is fired when the user presses the "Refresh" actionbutton on the UI  
 observeEvent(input$devicesRefresh, {
   
+  if(is.null(options()$Db)){
+    return(NULL)
+  }
+  
   database <- reactive({
     # invalidateLater(10000) #This command is used to refresh the data & propagate changes to UI
     #by enabling the command above, the dashboard will auto-refresh every x/1000 seconds

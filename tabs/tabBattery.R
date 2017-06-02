@@ -3,6 +3,10 @@ tabBattery <- function(input, output, session) {
   
   #This event is fired when the user presses the "Refresh" actionbutton on the UI  
   observeEvent(input$batteryRefresh, {
+    
+    if(is.null(options()$Db)){
+      return(NULL)
+    }
 
     db <- options()$db
     batteryStats <- dbGetQuery(db,
