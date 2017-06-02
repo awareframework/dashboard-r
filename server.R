@@ -13,7 +13,7 @@ server <- function(input, output, session) {
   #We call modules so that the code is more readable.
   #However, we need to use the "ns" function within modules, which complicates things a bit.
   callModule(tabSettings,"tabSettings", output, session)
-  callModule(tabBattery,"tabBattery")
   callModule(tabDashboard, "tabDashboard")
+  callModule(tabBattery,"tabBattery")
   callModule(tabDevices, "tabDevices")
 }

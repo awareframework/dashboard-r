@@ -26,7 +26,8 @@ tabSettings <- function(input, output, session, parameter, parameter2) {
         menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "online", badgeColor = "green")
       })
       #update some of the tabs
-      #tabBattery(input,output,session).updateBatteryTab()
+      #here we can add code to update tabs
+      
       
     }, warning = function(w) {
       return(NA)
