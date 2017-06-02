@@ -13,30 +13,30 @@ tabSettings <- function(input, output, session, parameter, parameter2) {
     
    
     result = tryCatch({
+      #connect to the server
+      #need to catch errors due to invalid password/wrong data
       conn = dbConnect(MySQL(), dbname = input$database, host = input$host,
                        port = input$port, user = input$user,
                        password = input$password)
-    }, warning = function(w) {
-      return(NA)
-    }, error = function(e) {
-      parameter$menuSettings <- renderMenu({
-        menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "error", badgeColor = "red")
-      })
       
-      return(NA)
-    }, finally={}
-    )
-    
-    
-    #If we have a connection to the server
-    if(!is.na(result)){
       #Update global variable with database handle
       options(db = conn)
       #Update UI to indicate we are connected
       parameter$menuSettings <- renderMenu({
         menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "online", badgeColor = "green")
       })
-    }
+      #update some of the tabs
+      #tabBattery(input,output,session).updateBatteryTab()
+      
+    }, warning = function(w) {
+      return(NA)
+    }, error = function(e) {
+      parameter$menuSettings <- renderMenu({
+        menuItem("Settings", tabName = "settings", icon = icon("gear"), badgeLabel = "error", badgeColor = "red")
+      })
+      return(NA)
+    }, finally={}
+    )
     
     
   })
