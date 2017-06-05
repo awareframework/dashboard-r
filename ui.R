@@ -4,8 +4,10 @@ ui <- dashboardPage(
   dashboardHeader(title = "AWARE dashboard"),
   ## Sidebar content
   dashboardSidebar(
-    sidebarMenu(
-      menuItem("Settings", tabName = "settings", icon = icon("gear")),
+    sidebarMenu(id="tabs",
+                
+      #the first item is differnt, because we dynamically update it
+      menuItemOutput("menuSettings"),
       menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
       menuItem("Devices", tabName = "devices", icon = icon("mobile")),
       menuItem("Battery", tabName = "tabBattery", icon = icon("battery-half")),
@@ -15,27 +17,16 @@ ui <- dashboardPage(
   dashboardBody(
     tabItems(
 
-      # new tab content
       tabItem(tabName = "settings" ,
               tabSettingsUI("tabSettings")
       ),
       
-      
-      # new tab content
       tabItem(tabName = "dashboard",
-              h2("Overview of all data"),
-              fluidRow(
-                valueBoxOutput("totalDevices"), valueBoxOutput("totalAppLaunches"), valueBoxOutput("totalBatteryEvents")
-              )
+              tabDashboardUI("tabDashboard")
       ),
       
       tabItem(tabName = "devices", 
-              h2("Device details"),
-              fluidRow(
-                column(12,
-                       dataTableOutput("deviceInfo")
-                )
-              )
+              tabDevicesUI("tabDevices")
       ), 
       
       tabItem(tabName = "tabBattery",

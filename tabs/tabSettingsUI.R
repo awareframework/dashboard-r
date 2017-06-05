@@ -5,11 +5,11 @@ tabSettingsUI <- function(id) {
   tagList(
     h2("Connection settings"),
     p("Please enter the details of your database server, and click CONNECT."),
-    textInput(options()$mysql$host, "Host", value = "awareframework.com", width = NULL, placeholder = ""),
-    textInput(options()$mysql$port, "Port", value = "3306", width = NULL, placeholder = ""),
-    textInput(options()$mysql$user, "Username", value = "Hosio_235", width = NULL, placeholder = ""),
-    passwordInput(options()$mysql$password, "Password", value = "", width = NULL, placeholder = ""),
-    textInput(options()$mysql$database, "Database", value = "Hosio_235", width = NULL, placeholder = ""),
-    actionButton(("settingsConnect"),"Connect")
+    textInput(ns("host"), "Host", value = "awareframework.com", width = NULL, placeholder = ""),
+    numericInput(ns("port"), "Port", value = 3306),
+    textInput(ns("user"), "Username", value = "Hosio_235", width = NULL, placeholder = ""),
+    passwordInput(ns("password"), "Password", value = "", width = NULL, placeholder = ""),
+    textInput(ns("database"), "Database", value = "Hosio_235", width = NULL, placeholder = ""),
+    actionButton(ns("settingsConnect"),"Connect")
   )
 }
